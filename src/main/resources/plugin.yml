@@ -1,0 +1,5 @@
+name: GameModeFix
+version: @version@
+main: cn.mcdawncity.gamemodefix.GameModeFix
+api-version: 1.13
+authors: [Mical]
