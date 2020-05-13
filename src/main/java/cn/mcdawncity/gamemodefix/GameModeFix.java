@@ -12,8 +12,6 @@ public final class GameModeFix extends JavaPlugin {
 
     public static GameModeFix instance = null;
 
-    public static FileConfiguration config;
-
     public static GameModeFix getInstance() {
         return instance;
     }
@@ -21,7 +19,7 @@ public final class GameModeFix extends JavaPlugin {
     @Override
     public void reloadConfig() {
         super.reloadConfig();
-        ENABLE = config.getBoolean("Enable");
+        ENABLE = getConfig().getBoolean("Enable");
     }
 
     @Override
@@ -30,7 +28,6 @@ public final class GameModeFix extends JavaPlugin {
         instance = this;
         this.saveDefaultConfig();
         reloadConfig();
-        this.config = getConfig();
         ListenerManager.register();
         getLogger().log(Level.INFO, "插件已启动,作者Mical");
         if (!ENABLE){

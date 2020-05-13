@@ -9,6 +9,6 @@ public class QuitListener implements Listener {
 
     @EventHandler
     public void quit(PlayerQuitEvent event){
-        GameModeFix.config.set("data." + event.getPlayer().getUniqueId().toString(), event.getPlayer().getGameMode().toString());
+        GameModeFix.getInstance().getConfig().set("data." + event.getPlayer().getUniqueId().toString(), event.getPlayer().getGameMode().toString());
     }
 }
