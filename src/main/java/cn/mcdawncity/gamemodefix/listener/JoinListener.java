@@ -10,6 +10,9 @@ public class JoinListener implements Listener {
 
     @EventHandler
     public void join(PlayerJoinEvent event){
-        event.getPlayer().setGameMode(GameMode.valueOf(GameModeFix.getInstance().getConfig().getString("data." + event.getPlayer().getUniqueId().toString())));
+        if (GameModeFix.getInstance().getConfig().getString("data." + event.getPlayer().getUniqueId()) == null){
+            GameModeFix.getInstance().getConfig().set("data." + event.getPlayer().getUniqueId(), event.getPlayer().getGameMode().toString());
+        }
+        event.getPlayer().setGameMode(GameMode.valueOf(GameModeFix.getInstance().getConfig().getString("data." + event.getPlayer().getUniqueId())));
     }
 }
